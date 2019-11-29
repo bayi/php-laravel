@@ -54,7 +54,7 @@ RUN apt-get update \
 STOPSIGNAL SIGQUIT
 
 COPY overrides.conf /etc/php/7.3/fpm/pool.d/z-overrides.conf
-COPY php.ini /etc/php/7.3/fpm/conf.d/99-overrides.conf
+COPY php.ini /etc/php/7.3/fpm/conf.d/99-overrides.ini
 COPY polcy.xml /etc/ImageMagick-6/policy.xml
 COPY wait-for-it.sh /usr/bin/wait-for-it.sh
 RUN chmod +x /usr/bin/wait-for-it.sh
