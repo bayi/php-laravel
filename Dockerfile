@@ -45,6 +45,7 @@ RUN apt-get update \
         webp \
         imagemagick \
         ghostscript \
+        git \
     && curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer \
     && composer global require hirak/prestissimo \
     && composer clear-cache \
