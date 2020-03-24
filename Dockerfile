@@ -20,23 +20,24 @@ RUN apt-get update \
         unzip \
         php-apcu \
         php-apcu-bc \
-        php7.3-cli \
-        php7.3-curl \
-        php7.3-json \
-        php7.3-mbstring \
-        php7.3-opcache \
-        php7.3-readline \
-        php7.3-xml \
-        php7.3-zip \
-        php7.3-mysql \
-        php7.3-bcmath \
-        php7.3-bz2 \
-        php7.3-gd \
-        php7.3-gmp \
+        php7.2-cli \
+        php7.2-curl \
+        php7.2-json \
+        php7.2-mbstring \
+        php7.2-opcache \
+        php7.2-readline \
+        php7.2-xml \
+        php7.2-zip \
+        php7.2-mysql \
+        php7.2-bcmath \
+        php7.2-bz2 \
+        php7.2-gd \
+        php7.2-gmp \
         php-imagick \
-        php7.3-intl \
-        php7.3-fpm \
-        php7.3-ldap \
+        php7.2-intl \
+        php7.2-fpm \
+        php7.2-ldap \
+        php7.2-soap \
         php-redis \
         jpegoptim \
         optipng \
@@ -54,8 +55,8 @@ RUN apt-get update \
 
 STOPSIGNAL SIGQUIT
 
-COPY overrides.conf /etc/php/7.3/fpm/pool.d/z-overrides.conf
-COPY php.ini /etc/php/7.3/fpm/conf.d/99-overrides.ini
+COPY overrides.conf /etc/php/7.2/fpm/pool.d/z-overrides.conf
+COPY php.ini /etc/php/7.2/fpm/conf.d/99-overrides.ini
 COPY polcy.xml /etc/ImageMagick-6/policy.xml
 COPY wait-for-it.sh /usr/bin/wait-for-it.sh
 RUN chmod +x /usr/bin/wait-for-it.sh
@@ -72,7 +73,7 @@ RUN echo '#!/bin/bash\n/usr/bin/php /application/artisan "$@"' > /usr/bin/artisa
 RUN chmod +x /usr/bin/artisan
 
 # Run command
-ENTRYPOINT ["/usr/sbin/php-fpm7.3", "-O" ]
+ENTRYPOINT ["/usr/sbin/php-fpm7.2", "-O" ]
 
 # Open up fcgi port
 EXPOSE 9000
